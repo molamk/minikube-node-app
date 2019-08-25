@@ -1,0 +1,34 @@
+replicaCount: 1
+
+image:
+  repository: molamk/node-app
+  tag: latest
+  pullPolicy: Always
+
+env:
+  containerPort: "80"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  annotations: {}
+  hosts:
+    - host: minikube-node-app.local
+      paths: ["/"]
+
+  tls: []
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
